@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOUSE PRICE PREDICTOR</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #e6cbf8;
+    
+    }
+    
+    .upper{
+        background-color: rgb(231, 230, 241);
+        border: 3px solid rgb(64, 6, 119);
+        padding: 22px 475px;
+        margin: 12px 19px;
+        border-radius: 23px;
+        width: 1490px;
+        
+           
+    }
+    .lower{
+        background-color: rgb(231, 230, 241);
+        border: 3px solid rgb(64, 6, 119);
+        padding: 23px 19px;
+        margin: -9px 19px;
+        border-radius: 23px;
+        width: 1490px;
+        height: 616px;
+           
+    
+    }
+    input[type=text], select, input{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+input[type=reset] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-right: 26px;
+  
+}
+
+/* Style the container */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  height: 562px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0em;}
+  to{width: 19em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+    
+    </style>
+<link rel="shortcut icon" href="https://img.icons8.com/emoji/2x/house-emoji.png" type="image/x-icon">
+</head>
+<body>
+    <div class="upper">
+        <h3 class="line-1 anim-typewriter">HOUSE PRICE PREDICTIONS IN INDIA</h3>
+        
+
+    </div>
+
+    <div class="lower">
+        <h3>ENTER THE VALUES FOR HOUSE PRICES</h3>
+      
+        <div class="container">
+            <form action="/predictions" method="GET" id="myForm" >
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname"><strong>POSTED BY</strong> </label>
+                </div>
+                <div class="col-75">
+                    <select name="posted_by" >
+                        <option value="none" selected disabled hidden>
+                            Select an Option
+                        </option>
+                      <option value="0">OWNER</option>
+                      <option value="1">DEALER</option>
+                      <option value="2">BUILDER</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>UNDER CONSTRUCTION</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <select name="under_constuction" >
+                        <option value="none" selected disabled hidden>
+                            Select an Option
+                        </option>
+                      <option value="1">YES</option>
+                      <option value="0">NO</option>
+                      
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>RERA REGISTERED</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <select name="rera_registered" >
+                        <option value="none" selected disabled hidden>
+                            Select an Option
+                        </option>
+                      <option value="1">YES</option>
+                      <option value="0">NO</option>
+                      
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>NUMBER OF ROOMS (BHK)</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <select name="num_of_rooms" >
+                        <option value="none" selected disabled hidden >
+                            Select an Option
+                        </option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+            
+                      
+                      
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>BHK OR RHK</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <select name="bhk_or_rk" >
+                        <option value="none" selected disabled hidden>
+                            Select an Option
+                        </option>
+                      <option value="0">BHK</option>
+                      <option value="1">RK</option>
+                      
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>SQUARE FT</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <input type="number" step="any" required id="subject" name="sqaure_ft" placeholder="Enter Square ft." style="height:40px ;width: 1054px; border-radius: 4px;" >
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>READY TO MOVE</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <select name="ready_to_move" >
+                        <option value="none" selected disabled hidden>
+                            Select an Option
+                        </option>
+                      <option value="1">YES</option>
+                      <option value="0">NO</option>
+                      
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>RESALE</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <select name="resale">
+                        <option value="none" selected disabled hidden>
+                            Select an Option
+                        </option>
+                      <option value="1">YES</option>
+                      <option value="0">NO</option>
+                      
+                    </select>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>LONGITUDE</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <input type="number" step="any" required id="subject" name="longitude" placeholder="Enter longitude" style="height:40px ;width: 1054px; border-radius: 4px;" >
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="lname"><strong>LATITUDE</strong></label>
+                  
+                </div>
+                <div class="col-75">
+                    <input type="number" step="any" required id="subject" name="latitude" placeholder="Enter latitude" style="height:40px ;width: 1054px; border-radius: 4px;" >
+                  </div>
+              </div>
+
+              
+              
+              <div class="row">
+                <input type="submit" value="SUBMIT" style="width: 80px; height: 38px;">
+                <input  type="reset" value="RESET" style="width: 82px; height: 38px;">
+              </div>
+            </form>
+            
+            
+          </div>
+          
+    </div>
+
+
+</body>
+</html>
